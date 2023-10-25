@@ -29,4 +29,4 @@ func main() {
 }
 
 //Testar acessando a URL: http://localhost:8080/graphql?query={user(id:"1"){id, name}}
-//Estar retornando null pq não estou retornando dado nenhum
+//Está retornando null pq não estou retornando dado nenhum
