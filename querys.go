@@ -21,11 +21,18 @@ var queryType = graphql.NewObject(
 					idQuery, isOK := p.Args["id"].(string)
 					//Vai printar a id passada na query
 					//Ex.: query={user(id:"1"){id, name}}
-					fmt.Println(idQuery)
+					fmt.Println(idQuery, isOK)
 					if isOK {
+						type user struct {
+							Id   string
+							Name string
+						}
+						data := make(map[string]user)
+						data["1"] = user{"1", "Cleber"}
+						data["2"] = user{"2", "Arthur"}
 						//Buscar do banco de dados e
 						//retornar um map do tipo usuário
-						return idQuery, nil
+						return data[idQuery], nil
 					}
 					return nil, nil
 				},
